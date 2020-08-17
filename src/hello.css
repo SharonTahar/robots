@@ -1,0 +1,13 @@
+h2 {
+    color: green;
+}
+
+.mainheader {
+    text-align: center;
+    color: #000000;
+    font-size: 30px;
+}
+
+.box {
+    border: 1px dashed;
+}
