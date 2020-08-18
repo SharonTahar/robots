@@ -1,57 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { getText } from './redux/action'
 
-//search with the input 
-// const Searchbox = ({onTxtCng, onBtnClk}) => {
-//     return(
-//         <div>
-//             <input type="text" 
-//             placeholder="Search"
-//             onChange={onTxtCng}/>
-//             <button type='search'onClick={() => onBtnClk()}>search</button> 
-//         </div>
-//     );
-// }
-// export default Searchbox;
 
-//search with a button 
-// const Searchbox = ({onClickBtn}) => {
-//     return(
-//         <div>
-//             <input type="text" 
-//             placeholder="Search"/>
-//             <button id='search'onChange={onClickBtn}>search</button>
-//         </div>
-//     );
-// }
-// export default Searchbox;
-
-//using the class component 
-class Searchbox extends React.Component {
-    constructor(){
-        super();
-        this.state = { 
-            txt: '',
-        }
-    }
-
-    handleText = (e) => {
-        // console.log('handletext:', e.target.value);
-        this.setState({txt:e.target.value})
-    }
-
-    render(){
-    const {txt} = this.state;
-    const { onBtnClk } = this.props
+const Searchbox = (props) => {
+    const { getText  } = props
+    // console.log(the_text);
     return(
         <div>
             <input type="text" 
             placeholder="Search"
-            onChange={this.handleText}
+            onChange={getText}
             className="mr-sm-2 form-control form-inline"/>
-            <button className="btn-outline-success btn" type='search' onClick={() => onBtnClk(txt)}>search</button> 
         </div>
     );
 }
 
+
+//gets the state from the store (state is calling the stores state)
+const mapStateToProps = (state) => {
+    return {
+    searchText: state.getText
+    }
+  }
+  
+//updates state changes in the store 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getText:() => dispatch(getText('check')),
+    }
 }
-export default Searchbox;
+export default connect(mapStateToProps,mapDispatchToProps)(Searchbox); 

@@ -6,7 +6,7 @@ const CardxList = ({robots}) => {
     return(
         <Row>
             {
-                robots.map( (item,i) => {
+                robots.map( (item) => {
                     return <Cardx robot={item} />
                 })
             }

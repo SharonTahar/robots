@@ -12,12 +12,12 @@ const Cardx = ({robot}) => {
         //     <p> {email} </p>
         // </div>
     <Col xs={12} md={3}>
-        <Card style={{ width: '18rem', 'text-align': 'center' }}>
+        <Card style={{ width: '18rem', 'textalign': 'center' }}>
             <Card.Img variant="top" src={`https://robohash.org/${id}?size=200x200`}  />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <h4> {username} </h4>
-                    {email}
+                    <h4>{email}</h4>
                     <Card.Text>
                     </Card.Text>
             </Card.Body>
